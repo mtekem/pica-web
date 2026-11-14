@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>PICA · Acceso clientes</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Pantalla de ingreso del portal de clientes. Banda oscura de marca a la izquierda, formulario a la derecha. */
+:root{
+  --band:#20251F; --band-fg:#FFFFFF; --band-muted:#C3CABD; --band-line:#3A4237; --frame:#D2D8CE;
+  --bg:#FFFFFF; --ink:#242823; --muted:#596155; --line:#DDE2D6; --field:#FFFFFF;
+  --green:#8FC43A; --green-ink:#4C7612; --yellow:#F8E000; --note:#4C7612;
+  --f-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --band:#1B201A; --band-line:#353D33; --bg:#121611; --ink:#E8ECE3; --muted:#A6AF9F; --line:#2E352C; --field:#171C16; --green-ink:#A6D65A; --note:#A6D65A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --band:#1B201A; --band-line:#353D33; --bg:#121611; --ink:#E8ECE3; --muted:#A6AF9F; --line:#2E352C; --field:#171C16; --green-ink:#A6D65A; --note:#A6D65A; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.55 var(--f-sans);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.pantalla{min-height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.marca{background:var(--band);color:var(--band-fg);display:flex;flex-direction:column;justify-content:space-between;gap:3rem;
+  padding-block:2.5rem;padding-left:max(2.5rem,env(safe-area-inset-left,0px));padding-right:2.5rem}
+.logo{height:34px;width:auto;display:block}
+.logo .frame{stroke:var(--frame)} .logo .word{fill:var(--band-fg)}
+.marca h1{font-size:clamp(1.75rem,3.4vw,2.75rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;max-width:14ch;margin:0;text-wrap:balance}
+.marca .rule{height:5px;width:6rem;background:var(--yellow);margin-top:1.5rem}
+.marca .pie{font-family:var(--f-mono);font-size:.8125rem;color:var(--band-muted);letter-spacing:.04em}
+.form{display:flex;align-items:center;justify-content:center;
+  padding-block:2.5rem;padding-left:2.5rem;padding-right:max(2.5rem,env(safe-area-inset-right,0px))}
+form{width:100%;max-width:24rem;display:grid;gap:1.1rem}
+.label{font-family:var(--f-mono);font-size:.8125rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green-ink);margin:0}
+h2{font-size:1.75rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.sub{color:var(--muted);margin:0;font-size:.9375rem}
+.f{display:grid;gap:.4rem}
+.f label{font-size:.8125rem;font-weight:600}
+.f input{font:inherit;font-size:.9375rem;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:3px;padding:.8rem .9rem;width:100%}
+.f input:focus{border-color:var(--green-ink);outline:2px solid var(--green);outline-offset:0}
+button{font:600 .9375rem/1 var(--f-sans);background:var(--green);color:#1A2010;border:0;border-radius:3px;padding:.95rem 1.2rem;cursor:pointer}
+button:hover{background:#A3D452}
+#aviso{font-size:.875rem;color:var(--note);margin:0;min-height:1.3em}
+.volver{font-size:.875rem;color:var(--muted)}
+.volver a{color:inherit}
+@media (max-width:760px){
+  .pantalla{grid-template-columns:minmax(0,1fr)}
+  .marca{gap:1.5rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .marca .pie{display:none}
+  .form{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+</style>
+</head>
+<body>
+<main class="pantalla">
+  <section class="marca">
+    <a href="index.html" aria-label="PICA, inicio">
+      <svg class="logo" viewBox="0 0 296.35 100" role="img" aria-label="PICA">
+        <path class="frame" d="M52 12 H12 V88 H88 V48" fill="none" stroke-width="10" stroke-linecap="square"/>
+        <rect x="30" y="46" width="24" height="24" fill="#8FC43A"/>
+        <path d="M54.8 38.8 L61.2 45.2" stroke="#8FC43A" stroke-width="8" stroke-linecap="round"/>
+        <path d="M62.95 24.33 L75.67 37.05" stroke="#F8E000" stroke-width="8" stroke-linecap="round"/>
+        <path d="M71.08 9.82 L90.18 28.92" stroke="#F8E000" stroke-width="8" stroke-linecap="round"/>
+        <g class="word" transform="translate(125,73.33333) scale(0.030924479,-0.030924479)">
+          <path d="M135 0V1490H716Q886 1490 1005.0 1425.5Q1124 1361 1186.5 1247.5Q1249 1134 1249 987Q1249 839 1185.5 726.5Q1122 614 1001.5 550.5Q881 487 709 487H335V733H660Q754 733 814.5 765.5Q875 798 904.5 855.0Q934 912 934 987Q934 1062 904.5 1118.5Q875 1175 814.0 1206.5Q753 1238 659 1238H440V0Z"/>
+          <path transform="translate(1449.88,0)" d="M440 1490V0H135V1490Z"/>
+          <path transform="translate(2147.76,0)" d="M786 -20Q588 -20 431.5 70.0Q275 160 184.5 331.0Q94 502 94 744Q94 987 185.0 1158.5Q276 1330 433.0 1420.0Q590 1510 786 1510Q913 1510 1022.5 1474.5Q1132 1439 1217.0 1371.0Q1302 1303 1356.0 1204.5Q1410 1106 1427 980H1118Q1108 1042 1079.5 1089.5Q1051 1137 1008.5 1170.5Q966 1204 911.0 1221.5Q856 1239 792 1239Q676 1239 588.5 1181.0Q501 1123 452.5 1012.5Q404 902 404 744Q404 583 453.0 473.0Q502 363 589.0 307.0Q676 251 791 251Q855 251 909.5 268.5Q964 286 1007.5 319.5Q1051 353 1079.5 401.0Q1108 449 1119 510H1428Q1416 406 1366.5 311.0Q1317 216 1235.0 141.0Q1153 66 1040.0 23.0Q927 -20 786 -20Z"/>
+          <path transform="translate(3785.64,0)" d="M49 0 558 1490H958L1480 0H1141L902 719Q859 858 814.5 1023.5Q770 1189 721 1385H788Q740 1188 698.5 1021.5Q657 855 616 719L386 0ZM367 346V585H1162V346Z"/>
+        </g>
+      </svg>
+    </a>
+    <div>
+      <h1>Tu instalación, medida y explicada.</h1>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <p class="pie">PORTAL DE CLIENTES</p>
+  </section>
+
+  <section class="form">
+    <form id="form-acceso" novalidate>
+      <p class="label">Acceso clientes</p>
+      <h2>Ingresa a tu portal</h2>
+      <p class="sub">Usa el correo registrado para tu sitio.</p>
+      <div class="f"><label for="correo">Correo</label><input id="correo" type="email" autocomplete="username" required></div>
+      <div class="f"><label for="clave">Contraseña</label><input id="clave" type="password" autocomplete="current-password" required></div>
+      <button type="submit">Ingresar</button>
+      <p id="aviso" role="status" aria-live="polite"></p>
+      <p class="volver"><a href="index.html">Volver a pica</a> · <a href="index.html#demo">Solicitar una demo</a></p>
+    </form>
+  </section>
+</main>
+<script>
+document.getElementById('form-acceso').addEventListener('submit',function(e){
+  e.preventDefault();
+  /* No envía ni guarda credenciales: el portal definitivo reemplaza esta pantalla. */
+  document.getElementById('clave').value='';
+  document.getElementById('aviso').textContent='El ingreso desde esta dirección se habilita junto con el portal definitivo. Si ya eres cliente, usa el enlace de acceso que te enviamos.';
+});
+</script>
+</body>
+</html>
