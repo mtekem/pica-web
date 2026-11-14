@@ -79,9 +79,7 @@ nav.links .portal{display:inline-flex;align-items:center;gap:.4rem;border:1px so
 .reg .big{font-size:1.25rem;font-weight:500}
 .chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;letter-spacing:.04em}
 .chip::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:currentColor}
-.chip.ok{color:var(--green)} .chip.bad{color:#F2A07B}
-.reg.off{opacity:.92}
-.reg.off .big{color:#8E978A}
+.chip.ok{color:var(--green)}
 .ficha .nota{font-size:var(--s-xs);color:#8E978A;font-family:var(--f-mono)}
 
 /* Secciones */
@@ -216,15 +214,7 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
           <dt>Huella</dt><dd>sha256 9f2c…e41a</dd>
         </dl>
       </article>
-      <article class="reg off">
-        <header><span>Temperatura retorno</span><span class="chip bad">Descartado</span></header>
-        <dl>
-          <dt>Valor</dt><dd class="big">Sin dato</dd>
-          <dt>Motivo</dt><dd>Lectura fuera de rango físico: 888 °C</dd>
-          <dt>Desde</dt><dd>12-11-2026 22:30</dd>
-        </dl>
-      </article>
-      <p class="nota">Registros de ejemplo. Un valor imposible no entra a un promedio: se marca y se informa.</p>
+      <p class="nota">Registro de ejemplo. Cada dato llega con su hora, su origen, su calidad y su huella.</p>
     </div>
   </div></section>
 </div>
