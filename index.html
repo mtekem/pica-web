@@ -155,7 +155,7 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
 
 </head>
 <body>
-<div class="draft" role="note"><div class="wrap"><span>BORRADOR v0.3 · 14-11-2026</span><span>Identidad Núcleo propuesta, sujeta a aprobación</span><span>Dirección provisoria · sin dominio</span></div></div>
+<div class="draft" role="note"><div class="wrap"><span>BORRADOR v0.4 · 14-11-2026</span><span>Identidad Núcleo propuesta, sujeta a aprobación</span><span>Dirección provisoria · sin dominio</span></div></div>
 
 <div class="band">
   <header class="top"><div class="wrap">
@@ -280,21 +280,12 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
     <div class="sec-head" style="margin-bottom:0">
       <p class="label">Solicitar una demo</p>
       <h2>Revisemos las fuentes de tu instalación.</h2>
-      <p>Cuéntanos qué equipos operas y qué necesitas decidir. Te contactaremos para acordar el alcance de una demostración.</p>
+      <p>Déjanos tu nombre y tu correo. Te contactaremos para acordar una demostración.</p>
     </div>
     <form id="form-demo" novalidate>
       <div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required></div>
-      <div class="f"><label for="empresa">Empresa</label><input id="empresa" name="empresa" autocomplete="organization" required></div>
-      <div class="f"><label for="cargo">Cargo</label><input id="cargo" name="cargo" autocomplete="organization-title"></div>
       <div class="f"><label for="correo">Correo</label><input id="correo" name="correo" type="email" autocomplete="email" required></div>
-      <div class="f full"><label for="instalacion">Tipo de instalación</label>
-        <select id="instalacion" name="instalacion" required>
-          <option value="">Selecciona una opción</option>
-          <option>Central térmica</option><option>Agua caliente sanitaria</option><option>Calderas</option><option>Bombas de calor</option><option>Bombas</option><option>Tableros eléctricos</option><option>Otra</option>
-        </select>
-      </div>
-      <div class="f full"><label for="necesidad">Necesidad principal</label><textarea id="necesidad" name="necesidad" placeholder="Por ejemplo: saber si los datos de la central son confiables antes de un cambio de equipos."></textarea></div>
-      <p class="finalidad">Usaremos estos datos sólo para responder tu solicitud de demo. No pedimos datos operacionales de tu instalación en este formulario, y enviarlo no da acceso al portal.</p>
+      <p class="finalidad">Usaremos tu nombre y tu correo sólo para responder tu solicitud de demo.</p>
       <div class="enviar"><button class="btn primary" type="submit">Enviar solicitud</button><span id="estado-envio" role="status" aria-live="polite"></span></div>
     </form>
   </div></section>
@@ -347,7 +338,7 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var faltan=[];
-    ['nombre','empresa','correo','instalacion'].forEach(function(id){
+    ['nombre','correo'].forEach(function(id){
       var el=document.getElementById(id);
       if(!el.value.trim()){faltan.push(el.labels[0].textContent);}
     });
