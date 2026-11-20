@@ -6,9 +6,24 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>PICA · Portada web</title>
+<title>PICA · Datos de energía en los que se puede confiar</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="PICA reúne los datos de energía de tus equipos y muestra su estado, su antigüedad y su contexto para apoyar la operación.">
+<link rel="canonical" href="https://picaedge.com/">
+<link rel="alternate" hreflang="es" href="https://picaedge.com/">
+<link rel="alternate" hreflang="en" href="https://picaedge.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://picaedge.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PICA">
+<meta property="og:locale" content="es_CL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://picaedge.com/">
+<meta property="og:title" content="PICA · Datos de energía en los que se puede confiar">
+<meta property="og:description" content="PICA reúne los datos de tus equipos y muestra su estado, su antigüedad y su contexto para apoyar la operación de tu instalación.">
+<meta property="og:image" content="https://picaedge.com/video/poster.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -43,10 +58,6 @@ p{margin:0}
 .mono{font-family:var(--f-mono)}
 .label{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.08em;text-transform:uppercase}
 
-/* Aviso de borrador */
-.draft{background:var(--yellow);color:#20251F;font-family:var(--f-mono);font-size:var(--s-xs)}
-.draft .wrap{padding-block:.5rem;display:flex;flex-wrap:wrap;gap:.25rem 1rem}
-
 /* Banda */
 .band{background:var(--band);color:var(--band-fg)}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--band);border-bottom:1px solid var(--band-line)}
@@ -57,6 +68,7 @@ nav.links{display:flex;align-items:center;gap:1.5rem;font-size:var(--s-sm)}
 nav.links a{text-decoration:none;color:var(--band-muted)}
 nav.links a:hover{color:var(--band-fg)}
 nav.links .portal{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--band-line);padding:.375rem .75rem;border-radius:3px;color:var(--band-fg)}
+nav.links .idioma{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.06em;color:var(--band-fg)}
 .hero .wrap{padding-block:5rem 5.5rem}
 .hero .eyebrow{color:var(--green)}
 .hero h1{font-size:var(--s-2xl);font-weight:800;line-height:1.04;margin-top:1rem;max-width:15ch}
@@ -132,7 +144,8 @@ form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.25rem
 /* Pie */
 footer.pie .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding-block:2.5rem}
 footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-muted)}
-.sello{border:1px dashed var(--band-muted);color:var(--band-muted);font-family:var(--f-mono);font-size:.75rem;padding:.75rem 1rem;border-radius:3px;text-align:center;max-width:16rem}
+footer.pie .meta a{color:var(--band-fg)}
+.sello{color:var(--band-muted);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.04em;text-align:right}
 
 @media (max-width:900px){
   .aplica,.demo{grid-template-columns:minmax(0,1fr);gap:2.5rem}
@@ -141,7 +154,8 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
   ol.pasos li,ol.pasos li + li{padding:1.25rem 0;border-left:0;border-bottom:1px solid var(--line)}
 }
 @media (max-width:720px){
-  nav.links a:not(.portal){display:none}
+  nav.links a:not(.portal):not(.idioma){display:none}
+  .sello{text-align:left}
   .preguntas,.capas{grid-template-columns:minmax(0,1fr)}
   form{grid-template-columns:minmax(0,1fr)}
   footer.pie .wrap{grid-template-columns:minmax(0,1fr)}
@@ -155,8 +169,6 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
 
 </head>
 <body>
-<div class="draft" role="note"><div class="wrap"><span>BORRADOR v0.4 · 14-11-2026</span><span>Identidad Núcleo propuesta, sujeta a aprobación</span><span>Dirección provisoria · sin dominio</span></div></div>
-
 <div class="band">
   <header class="top"><div class="wrap">
     <a href="#inicio" aria-label="PICA, inicio">
@@ -179,6 +191,7 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
       <a href="#como">Cómo funciona</a>
       <a href="#capacidades">Qué recibes</a>
       <a href="#demo">Solicitar demo</a>
+      <a class="idioma" href="en/" hreflang="en" lang="en" aria-label="English version">EN</a>
       <a class="portal" href="acceso.html">
         <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5" width="8" height="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
         Acceso clientes
@@ -283,6 +296,7 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
       <p>Déjanos tu nombre y tu correo. Te contactaremos para acordar una demostración.</p>
     </div>
     <form id="form-demo" novalidate>
+      <input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
       <div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required></div>
       <div class="f"><label for="correo">Correo</label><input id="correo" name="correo" type="email" autocomplete="email" required></div>
       <p class="finalidad">Usaremos tu nombre y tu correo sólo para responder tu solicitud de demo.</p>
@@ -306,11 +320,11 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
         <path transform="translate(3785.64,0)" d="M49 0 558 1490H958L1480 0H1141L902 719Q859 858 814.5 1023.5Q770 1189 721 1385H788Q740 1188 698.5 1021.5Q657 855 616 719L386 0ZM367 346V585H1162V346Z"/>
       </g>
     </svg>
-    <p><a href="acceso.html">Acceso clientes</a></p>
+    <p><a href="mailto:info@picaedge.com">info@picaedge.com</a> · <a href="acceso.html">Acceso clientes</a> · <a href="en/" hreflang="en" lang="en">English</a></p>
     <p>Medir primero. Entender después. Firmar con evidencia.</p>
     <p>© 2026 PICA</p>
   </div>
-  <div class="sello">Sello «Proyecto apoyado por Corfo»<br>(se reemplaza por el oficial)</div>
+  <p class="sello">Proyecto apoyado por Corfo</p>
 </div></footer>
 
 <script>
@@ -345,8 +359,26 @@ footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-m
     var correo=document.getElementById('correo');
     if(correo.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value)){faltan.push('Correo válido');}
     if(faltan.length){out.className='err';out.textContent='Completa: '+faltan.join(', ')+'.';return;}
-    out.className='ok';
-    out.textContent='Vista previa: en el sitio publicado, esta solicitud llegará al responsable comercial.';
+    var boton=form.querySelector('button[type=submit]');
+    boton.disabled=true;out.className='';out.textContent='Enviando…';
+    fetch('https://formsubmit.co/ajax/info@picaedge.com',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        Nombre:document.getElementById('nombre').value.trim(),
+        email:correo.value.trim(),
+        Idioma:'Español',
+        _subject:'Solicitud de demo · picaedge.com',
+        _template:'table',
+        _honey:document.getElementById('f-honey').value
+      })
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d && String(d.success)==='true'){
+        out.className='ok';out.textContent='Gracias. Te escribiremos pronto para acordar la demo.';form.reset();
+      }else{throw new Error('rechazado');}
+    }).catch(function(){
+      out.className='err';out.textContent='No pudimos enviar tu solicitud. Escríbenos a info@picaedge.com.';
+    }).then(function(){boton.disabled=false;});
   });
 })();
 </script>

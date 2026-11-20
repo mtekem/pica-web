@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>PICA · Energy data you can trust</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="PICA brings together the energy data from your equipment and shows its status, its age and its context to support your operation.">
+<link rel="canonical" href="https://picaedge.com/en/">
+<link rel="alternate" hreflang="es" href="https://picaedge.com/">
+<link rel="alternate" hreflang="en" href="https://picaedge.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://picaedge.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PICA">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_CL">
+<meta property="og:url" content="https://picaedge.com/en/">
+<meta property="og:title" content="PICA · Energy data you can trust">
+<meta property="og:description" content="PICA brings together the data from your equipment and shows its status, its age and its context to support the operation of your facility.">
+<meta property="og:image" content="https://picaedge.com/video/poster_en.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: banda oscura de marca (Núcleo) con la tesis y una ficha de señal; debajo, el método en orden y la captación. */
+:root{
+  --band:#20251F; --band-fg:#FFFFFF; --band-muted:#C3CABD; --band-line:#3A4237; --frame:#D2D8CE;
+  --bg:#FFFFFF; --paper:#F3F5EF; --ink:#242823; --muted:#596155; --line:#DDE2D6;
+  --green:#8FC43A; --green-ink:#4C7612; --yellow:#F8E000; --grey:#5A5A5A;
+  --ok:#4C7612; --bad:#B4471F; --field:#FFFFFF;
+  --f-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.0625rem; --s-lg:1.375rem; --s-xl:clamp(1.75rem,3.2vw,2.375rem); --s-2xl:clamp(2.25rem,5.6vw,4rem);
+  --gut-l:max(16px,env(safe-area-inset-left,0px)); --gut-r:max(16px,env(safe-area-inset-right,0px));
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --band:#1B201A; --band-line:#353D33;
+  --bg:#121611; --paper:#1A1F19; --ink:#E8ECE3; --muted:#A6AF9F; --line:#2E352C;
+  --green-ink:#A6D65A; --ok:#A6D65A; --bad:#F08A5D; --field:#171C16; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --band:#1B201A; --band-line:#353D33;
+  --bg:#121611; --paper:#1A1F19; --ink:#E8ECE3; --muted:#A6AF9F; --line:#2E352C;
+  --green-ink:#A6D65A; --ok:#A6D65A; --bad:#F08A5D; --field:#171C16; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:var(--s-md);line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-.02em}
+p{margin:0}
+.mono{font-family:var(--f-mono)}
+.label{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.08em;text-transform:uppercase}
+
+/* Banda */
+.band{background:var(--band);color:var(--band-fg)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--band);border-bottom:1px solid var(--band-line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.875rem}
+.logo{display:block;height:34px;width:auto}
+.logo .frame{stroke:var(--frame)} .logo .word{fill:var(--band-fg)}
+nav.links{display:flex;align-items:center;gap:1.5rem;font-size:var(--s-sm)}
+nav.links a{text-decoration:none;color:var(--band-muted)}
+nav.links a:hover{color:var(--band-fg)}
+nav.links .portal{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--band-line);padding:.375rem .75rem;border-radius:3px;color:var(--band-fg)}
+nav.links .idioma{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.06em;color:var(--band-fg)}
+.hero .wrap{padding-block:5rem 5.5rem}
+.hero .eyebrow{color:var(--green)}
+.hero h1{font-size:var(--s-2xl);font-weight:800;line-height:1.04;margin-top:1rem;max-width:15ch}
+.hero .rule{height:5px;width:7rem;background:var(--yellow);margin-top:1.75rem}
+.hero .lead{font-size:var(--s-lg);line-height:1.45;color:var(--band-muted);max-width:40ch;margin-top:1.5rem}
+.ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.25rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:600 var(--s-sm)/1 var(--f-sans);padding:.95rem 1.3rem;border-radius:3px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.primary{background:var(--green);color:#1A2010}
+.btn.primary:hover{background:#A3D452}
+.btn.ghost{border-color:var(--band-line);color:var(--band-fg)}
+.btn.ghost:hover{border-color:var(--band-muted)}
+
+/* Secciones */
+section.blk{padding-block:4.5rem}
+section.alt{background:var(--paper)}
+.sec-head{display:grid;gap:.75rem;max-width:62ch;margin-bottom:2.5rem}
+.sec-head .label{color:var(--green-ink)}
+.sec-head h2{font-size:var(--s-xl);font-weight:700;line-height:1.15}
+.sec-head p{color:var(--muted)}
+
+.preguntas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+.preg{border-top:3px solid var(--ink);padding-top:1.25rem;display:grid;gap:.6rem;align-content:start}
+.preg h3{font-size:var(--s-lg);font-weight:700}
+.preg p{color:var(--muted)}
+
+ol.pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line)}
+ol.pasos li{padding:1.5rem 1.25rem 0 0;display:grid;gap:.5rem;align-content:start;position:relative}
+ol.pasos li + li{padding-left:1.25rem;border-left:1px solid var(--line)}
+ol.pasos .n{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--muted)}
+ol.pasos h3{font-size:var(--s-md);font-weight:700}
+ol.pasos p{font-size:var(--s-sm);color:var(--muted)}
+ol.pasos li.ia h3::after{content:"final layer";margin-left:.5rem;font:500 .6875rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink);border:1px solid currentColor;padding:.2rem .35rem;border-radius:2px;vertical-align:middle}
+.cita{margin-top:2.75rem;display:grid;grid-template-columns:5px minmax(0,1fr);gap:1.25rem;max-width:70ch}
+.cita::before{content:"";background:var(--yellow)}
+.cita p{font-size:var(--s-lg);line-height:1.45}
+
+.aplica{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem;align-items:start}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tags span{border:1px solid var(--line);background:var(--bg);padding:.5rem .8rem;border-radius:3px;font-size:var(--s-sm)}
+.aviso{display:grid;gap:1rem}
+.aviso p{color:var(--muted)}
+.aviso strong{color:var(--ink);font-weight:600}
+
+.capas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.capas li{background:var(--bg);padding:1.5rem 1.25rem;display:grid;gap:.5rem;align-content:start}
+.capas h3{font-size:var(--s-md);font-weight:700}
+.capas p{font-size:var(--s-sm);color:var(--muted)}
+
+/* Video */
+.vhead{max-width:none;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem}
+.vtit{display:grid;gap:.75rem}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.lang button{font:600 var(--s-xs)/1 var(--f-sans);padding:.6rem .9rem;border:0;background:var(--bg);color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.player{aspect-ratio:16/9;max-width:100%;background:#20251F;border-radius:4px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.player video{width:100%;height:100%;display:block;background:#20251F}
+
+/* Formulario */
+.demo{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:3rem;align-items:start}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.25rem}
+.f{display:grid;gap:.4rem}
+.f.full{grid-column:1/-1}
+.f label{font-size:var(--s-xs);font-weight:600;letter-spacing:.02em}
+.f input,.f select,.f textarea{font:inherit;font-size:var(--s-sm);color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:3px;padding:.75rem .85rem;width:100%}
+.f textarea{min-height:7rem;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--green-ink);outline:2px solid var(--green);outline-offset:0}
+.finalidad{grid-column:1/-1;font-size:var(--s-xs);color:var(--muted);line-height:1.5}
+.enviar{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.enviar .btn.primary{border:0}
+#estado-envio{font-size:var(--s-sm);color:var(--muted)}
+#estado-envio.ok{color:var(--ok)} #estado-envio.err{color:var(--bad)}
+
+/* Pie */
+footer.pie .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding-block:2.5rem}
+footer.pie .meta{display:grid;gap:.5rem;font-size:var(--s-xs);color:var(--band-muted)}
+footer.pie .meta a{color:var(--band-fg)}
+.sello{color:var(--band-muted);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.04em;text-align:right}
+
+@media (max-width:900px){
+  .aplica,.demo{grid-template-columns:minmax(0,1fr);gap:2.5rem}
+  ol.pasos{grid-template-columns:minmax(0,1fr)}
+  .capas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  ol.pasos li,ol.pasos li + li{padding:1.25rem 0;border-left:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:720px){
+  nav.links a:not(.portal):not(.idioma){display:none}
+  .sello{text-align:left}
+  .preguntas,.capas{grid-template-columns:minmax(0,1fr)}
+  form{grid-template-columns:minmax(0,1fr)}
+  footer.pie .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap{padding-block:3rem 3.5rem}
+  section.blk{padding-block:3.25rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background .15s,border-color .15s}
+}
+</style>
+
+</head>
+<body>
+<div class="band">
+  <header class="top"><div class="wrap">
+    <a href="#inicio" aria-label="PICA, home">
+      <svg class="logo" viewBox="0 0 296.35 100" role="img" aria-label="PICA">
+        <path class="frame" d="M52 12 H12 V88 H88 V48" fill="none" stroke-width="10" stroke-linecap="square"/>
+        <rect x="30" y="46" width="24" height="24" fill="#8FC43A"/>
+        <path d="M54.8 38.8 L61.2 45.2" stroke="#8FC43A" stroke-width="8" stroke-linecap="round"/>
+        <path d="M62.95 24.33 L75.67 37.05" stroke="#F8E000" stroke-width="8" stroke-linecap="round"/>
+        <path d="M71.08 9.82 L90.18 28.92" stroke="#F8E000" stroke-width="8" stroke-linecap="round"/>
+        <g class="word" transform="translate(125,73.33333) scale(0.030924479,-0.030924479)">
+          <path d="M135 0V1490H716Q886 1490 1005.0 1425.5Q1124 1361 1186.5 1247.5Q1249 1134 1249 987Q1249 839 1185.5 726.5Q1122 614 1001.5 550.5Q881 487 709 487H335V733H660Q754 733 814.5 765.5Q875 798 904.5 855.0Q934 912 934 987Q934 1062 904.5 1118.5Q875 1175 814.0 1206.5Q753 1238 659 1238H440V0Z"/>
+          <path transform="translate(1449.88,0)" d="M440 1490V0H135V1490Z"/>
+          <path transform="translate(2147.76,0)" d="M786 -20Q588 -20 431.5 70.0Q275 160 184.5 331.0Q94 502 94 744Q94 987 185.0 1158.5Q276 1330 433.0 1420.0Q590 1510 786 1510Q913 1510 1022.5 1474.5Q1132 1439 1217.0 1371.0Q1302 1303 1356.0 1204.5Q1410 1106 1427 980H1118Q1108 1042 1079.5 1089.5Q1051 1137 1008.5 1170.5Q966 1204 911.0 1221.5Q856 1239 792 1239Q676 1239 588.5 1181.0Q501 1123 452.5 1012.5Q404 902 404 744Q404 583 453.0 473.0Q502 363 589.0 307.0Q676 251 791 251Q855 251 909.5 268.5Q964 286 1007.5 319.5Q1051 353 1079.5 401.0Q1108 449 1119 510H1428Q1416 406 1366.5 311.0Q1317 216 1235.0 141.0Q1153 66 1040.0 23.0Q927 -20 786 -20Z"/>
+          <path transform="translate(3785.64,0)" d="M49 0 558 1490H958L1480 0H1141L902 719Q859 858 814.5 1023.5Q770 1189 721 1385H788Q740 1188 698.5 1021.5Q657 855 616 719L386 0ZM367 346V585H1162V346Z"/>
+        </g>
+      </svg>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#video">Video</a>
+      <a href="#como">How it works</a>
+      <a href="#capacidades">What you get</a>
+      <a href="#demo">Request a demo</a>
+      <a class="idioma" href="../" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+      <a class="portal" href="acceso.html">
+        <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5" width="8" height="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        Client access
+      </a>
+    </nav>
+  </div></header>
+
+  <section class="hero" id="inicio"><div class="wrap">
+    <div>
+      <p class="label eyebrow">Integrated Control and Analysis Platform</p>
+      <h1>Energy data you can trust.</h1>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="lead">PICA brings together the data from your equipment and shows its status, its age and its context to support the operation of your facility.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#demo">Request a demo</a>
+        <a class="btn ghost" href="#video"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>Watch the video · 7 min</a>
+      </div>
+    </div>
+
+  </div></section>
+</div>
+
+<main>
+  <section class="blk alt" id="video"><div class="wrap">
+    <div class="sec-head vhead">
+      <div class="vtit"><p class="label">What is PICA</p><h2>PICA in seven minutes.</h2></div>
+      <div class="lang" role="group" aria-label="Video language">
+        <button type="button" id="v-en" aria-pressed="true">English</button>
+        <button type="button" id="v-es" aria-pressed="false" lang="es">Español</button>
+      </div>
+    </div>
+    <div class="player">
+      <video id="video-pica" controls playsinline preload="none" poster="../video/poster_en.jpg">
+        <source id="video-src" src="../video/PICA_What_is_PICA_EN.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <div class="sec-head">
+      <p class="label">The starting point</p>
+      <h2>Before you decide on a number, three questions.</h2>
+      <p>A plant room produces thousands of readings a day. They support a decision only when each one can show where it comes from and what it is worth.</p>
+    </div>
+    <div class="preguntas">
+      <div class="preg"><h3>When was it measured?</h3><p>Every reading keeps its measurement time and its age. A device that is still online cannot hide a variable that has stopped being measured.</p></div>
+      <div class="preg"><h3>Where does it come from?</h3><p>Every signal keeps the equipment, the measuring point and the reading frequency it comes from.</p></div>
+      <div class="preg"><h3>Has anyone changed it?</h3><p>Every record carries a digital fingerprint that reveals any later alteration.</p></div>
+    </div>
+  </div></section>
+
+  <section class="blk alt" id="como"><div class="wrap">
+    <div class="sec-head">
+      <p class="label">How it works</p>
+      <h2>Five steps, in this order.</h2>
+      <p>Each step uses only what the previous one has verified.</p>
+    </div>
+    <ol class="pasos">
+      <li><span class="n">01</span><h3>Measure</h3><p>Reads the equipment as it is installed.</p></li>
+      <li><span class="n">02</span><h3>Validate</h3><p>Checks that each reading is fit for decisions and flags the ones that are not.</p></li>
+      <li><span class="n">03</span><h3>Understand</h3><p>Relates the data to the engineering of the equipment and explains why things happen.</p></li>
+      <li><span class="n">04</span><h3>Prove</h3><p>Builds a record that a third party can recalculate.</p></li>
+      <li class="ia"><span class="n">05</span><h3>Ask</h3><p>An assistant that answers only about what has been measured and validated at your site.</p></li>
+    </ol>
+    <div class="cita"><p>When a reading is missing, PICA says so and names the cause. Every figure cites its series, its period and its calculation.</p></div>
+  </div></section>
+
+  <section class="blk"><div class="wrap aplica">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="label">Where it applies</p>
+      <h2>Energy facilities in operation.</h2>
+      <p>PICA works with the equipment already in your facility.</p>
+    </div>
+    <div class="aviso">
+      <div class="tags">
+        <span>Central heating plants</span><span>Domestic hot water</span><span>Boilers</span><span>Heat pumps</span><span>Pumps</span><span>Electrical switchboards</span>
+      </div>
+      <p><strong>Without replacing what works.</strong> PICA reads the existing controls and adds the data, analysis and evidence layer on top.</p>
+    </div>
+  </div></section>
+
+  <section class="blk alt" id="capacidades"><div class="wrap">
+    <div class="sec-head">
+      <p class="label">What you get</p>
+      <h2>Your facility, measured and explained.</h2>
+      <p>Information ready to operate, maintain and decide.</p>
+    </div>
+    <ul class="capas">
+      <li><h3>Readings from your equipment</h3><p>As installed, at the frequency each signal needs.</p></li>
+      <li><h3>Data quality</h3><p>Every signal with its status, its age and its origin, always in view.</p></li>
+      <li><h3>Engineering analysis</h3><p>Why something happened, comparing what the plant should have done with what it did.</p></li>
+      <li><h3>Alerts to whoever needs to act</h3><p>By messaging, as soon as a parameter drifts.</p></li>
+      <li><h3>Periodic reports</h3><p>Daily, weekly or monthly, with the indicators you choose.</p></li>
+      <li><h3>Event log</h3><p>Every plant event on record, expandable to maintenance work.</p></li>
+    </ul>
+  </div></section>
+
+  <section class="blk" id="demo"><div class="wrap demo">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="label">Request a demo</p>
+      <h2>Let’s review the data sources at your facility.</h2>
+      <p>Leave your name and email. We will contact you to arrange a demonstration.</p>
+    </div>
+    <form id="form-demo" novalidate>
+      <input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+      <div class="f"><label for="nombre">Name</label><input id="nombre" name="nombre" autocomplete="name" required></div>
+      <div class="f"><label for="correo">Email</label><input id="correo" name="correo" type="email" autocomplete="email" required></div>
+      <p class="finalidad">We will use your name and email only to answer your demo request.</p>
+      <div class="enviar"><button class="btn primary" type="submit">Send request</button><span id="estado-envio" role="status" aria-live="polite"></span></div>
+    </form>
+  </div></section>
+</main>
+
+<footer class="pie band"><div class="wrap">
+  <div class="meta">
+    <svg class="logo" viewBox="0 0 296.35 100" role="img" aria-label="PICA" style="height:28px">
+      <path class="frame" d="M52 12 H12 V88 H88 V48" fill="none" stroke-width="10" stroke-linecap="square"/>
+      <rect x="30" y="46" width="24" height="24" fill="#8FC43A"/>
+      <path d="M54.8 38.8 L61.2 45.2" stroke="#8FC43A" stroke-width="8" stroke-linecap="round"/>
+      <path d="M62.95 24.33 L75.67 37.05" stroke="#F8E000" stroke-width="8" stroke-linecap="round"/>
+      <path d="M71.08 9.82 L90.18 28.92" stroke="#F8E000" stroke-width="8" stroke-linecap="round"/>
+      <g class="word" transform="translate(125,73.33333) scale(0.030924479,-0.030924479)">
+        <path d="M135 0V1490H716Q886 1490 1005.0 1425.5Q1124 1361 1186.5 1247.5Q1249 1134 1249 987Q1249 839 1185.5 726.5Q1122 614 1001.5 550.5Q881 487 709 487H335V733H660Q754 733 814.5 765.5Q875 798 904.5 855.0Q934 912 934 987Q934 1062 904.5 1118.5Q875 1175 814.0 1206.5Q753 1238 659 1238H440V0Z"/>
+        <path transform="translate(1449.88,0)" d="M440 1490V0H135V1490Z"/>
+        <path transform="translate(2147.76,0)" d="M786 -20Q588 -20 431.5 70.0Q275 160 184.5 331.0Q94 502 94 744Q94 987 185.0 1158.5Q276 1330 433.0 1420.0Q590 1510 786 1510Q913 1510 1022.5 1474.5Q1132 1439 1217.0 1371.0Q1302 1303 1356.0 1204.5Q1410 1106 1427 980H1118Q1108 1042 1079.5 1089.5Q1051 1137 1008.5 1170.5Q966 1204 911.0 1221.5Q856 1239 792 1239Q676 1239 588.5 1181.0Q501 1123 452.5 1012.5Q404 902 404 744Q404 583 453.0 473.0Q502 363 589.0 307.0Q676 251 791 251Q855 251 909.5 268.5Q964 286 1007.5 319.5Q1051 353 1079.5 401.0Q1108 449 1119 510H1428Q1416 406 1366.5 311.0Q1317 216 1235.0 141.0Q1153 66 1040.0 23.0Q927 -20 786 -20Z"/>
+        <path transform="translate(3785.64,0)" d="M49 0 558 1490H958L1480 0H1141L902 719Q859 858 814.5 1023.5Q770 1189 721 1385H788Q740 1188 698.5 1021.5Q657 855 616 719L386 0ZM367 346V585H1162V346Z"/>
+      </g>
+    </svg>
+    <p><a href="mailto:info@picaedge.com">info@picaedge.com</a> · <a href="acceso.html">Client access</a> · <a href="../" hreflang="es" lang="es">Español</a></p>
+    <p>Measure first. Understand next. Sign with evidence.</p>
+    <p>© 2026 PICA</p>
+  </div>
+  <p class="sello">Project supported by Corfo,<br>Chile’s economic development agency</p>
+</div></footer>
+
+<script>
+(function(){
+  var video=document.getElementById('video-pica');
+  var src=document.getElementById('video-src');
+  var versiones={
+    'v-en':{src:'../video/PICA_What_is_PICA_EN.mp4',poster:'../video/poster_en.jpg'},
+    'v-es':{src:'../video/PICA_Que_es_PICA_ES.mp4',poster:'../video/poster.jpg'}
+  };
+  Object.keys(versiones).forEach(function(id){
+    document.getElementById(id).addEventListener('click',function(){
+      if(this.getAttribute('aria-pressed')==='true')return;
+      Object.keys(versiones).forEach(function(k){document.getElementById(k).setAttribute('aria-pressed',k===id?'true':'false');});
+      video.pause();
+      video.poster=versiones[id].poster;
+      src.src=versiones[id].src;
+      video.load();
+    });
+  });
+})();
+(function(){
+  var form=document.getElementById('form-demo');
+  var out=document.getElementById('estado-envio');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var faltan=[];
+    ['nombre','correo'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el.value.trim()){faltan.push(el.labels[0].textContent);}
+    });
+    var correo=document.getElementById('correo');
+    if(correo.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value)){faltan.push('Valid email');}
+    if(faltan.length){out.className='err';out.textContent='Please complete: '+faltan.join(', ')+'.';return;}
+    var boton=form.querySelector('button[type=submit]');
+    boton.disabled=true;out.className='';out.textContent='Sending…';
+    fetch('https://formsubmit.co/ajax/info@picaedge.com',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        Nombre:document.getElementById('nombre').value.trim(),
+        email:correo.value.trim(),
+        Idioma:'English',
+        _subject:'Demo request (EN) · picaedge.com',
+        _template:'table',
+        _honey:document.getElementById('f-honey').value
+      })
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d && String(d.success)==='true'){
+        out.className='ok';out.textContent='Thank you. We will write to you shortly to arrange the demo.';form.reset();
+      }else{throw new Error('rechazado');}
+    }).catch(function(){
+      out.className='err';out.textContent='We could not send your request. Please write to info@picaedge.com.';
+    }).then(function(){boton.disabled=false;});
+  });
+})();
+</script>
+
+</body>
+</html>
